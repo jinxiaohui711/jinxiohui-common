@@ -52,5 +52,19 @@ public class StringUtilTest {
 		}
 	}
 	
-
+	@Test
+	public void testIsPhone() {
+		boolean phone = StringUtil.isPhone("13711111111");
+		System.out.println(phone);
+	}
+	@Test
+	public void testIsEmail() {
+		boolean email = StringUtil.isEmail("1823845989@qq.com");
+		System.out.println(email);
+	}
+	@Test
+	public void testIsNumber() {
+		boolean number = StringUtil.isNumber("-12");
+		System.out.println(number);
+	}
 }

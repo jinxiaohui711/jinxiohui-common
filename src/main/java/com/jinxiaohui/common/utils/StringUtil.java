@@ -2,6 +2,8 @@ package com.jinxiaohui.common.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 
@@ -61,12 +63,50 @@ public class StringUtil {
 		name += randomChineseString(RandomUtil.random(1,2));
 		return name;
 	}
-	
-	
-	
-	
-	
-	
+	/**
+	 * 
+	    * @Title: isPhone
+	    * @Description: TODO(是否为手机号)
+	    * @param @param phone
+	    * @param @return    参数
+	    * @return boolean    返回类型
+	    * @throws
+	 */
+	public static boolean isPhone(String phone) {
+		String regex ="^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17[013678])|(18[0,5-9]))\\d{8}$";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(phone);
+		boolean isPhone = m.matches();
+		return isPhone;
+	}
+	/**
+	 * 
+	    * @Title: isEmail
+	    * @Description: TODO(是否为邮箱)
+	    * @param @param email
+	    * @param @return    参数
+	    * @return boolean    返回类型
+	    * @throws
+	 */
+	public static boolean isEmail(String email) {
+		String regEx1 ="^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+		Pattern p = Pattern.compile(regEx1);
+		Matcher m = p.matcher(email);
+		return m.matches();
+	}
+	/**
+	 * 
+	    * @Title: isNumber
+	    * @Description: TODO(是否为数字)
+	    * @param @param str
+	    * @param @return    参数
+	    * @return boolean    返回类型
+	    * @throws
+	 */
+	public static boolean isNumber(String str) {
+		Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");  
+        return pattern.matcher(str).matches();
+	}
 	
 	
 	
