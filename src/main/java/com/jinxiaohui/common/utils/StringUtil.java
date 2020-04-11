@@ -1,6 +1,7 @@
 package com.jinxiaohui.common.utils;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -108,8 +109,26 @@ public class StringUtil {
         return pattern.matcher(str).matches();
 	}
 	
-	
-	
+	/**
+	 * 
+	    * @Title: isHttpUrl
+	    * @Description: TODO(判断是否为合法路径)
+	    * @param @param src
+	    * @param @return    参数
+	    * @return boolean    返回类型
+	    * @throws
+	 */
+	public static boolean isHttpUrl(String src) {
+		try {
+			URL url = new URL(src);
+			url.openStream();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("路径不合法");
+		return false;
+	}
 	
 	
 	
